@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing component cell snapshot testing 1`] = `
+"<div class=\\"item--cell\\"><p class=\\"data--cell--number\\">
+    atomicNumber-test
+  </p> <p class=\\"data--cell--symbol\\">
+    symbol-test
+  </p> <p class=\\"data--cell--name\\">
+    name-test
+  </p> <p class=\\"data--cell--mass\\">
+    atomicMass-test
+  </p></div>"
+`;

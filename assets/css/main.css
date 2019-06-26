@@ -1,0 +1,66 @@
+
+[class*='--alkali_metal'] {
+  border: 1px solid #ab5cf2;
+  color: #ab5cf2;
+  background: rgba(171, 92, 242, .25);
+}
+
+[class*='--alkaline_earth_metal'] {
+  border: 1px solid #8aff00;
+  color: #8aff00;
+  background: rgba(138, 255, 0, .25);
+}
+
+[class*='--transition_metal'] {
+  border: 1px solid #94ffff;
+  color: #94ffff;
+  background: rgba(148, 255, 255, .25);
+}
+
+[class*='--metal'] {
+  border: 1px solid #1fffc7;
+  color: #1fffc7;
+  background: rgba(31, 255, 199, .25);
+}
+
+[class*='--metalloid'] {
+  border: 1px solid #e7ff21;
+  color: #e7ff21;
+  background: rgba(231, 255, 33, .25);
+}
+
+[class*='--nonmetal'] {
+  border: 1px solid #ff8000;
+  color: #ff8000;
+  background: rgba(255, 128, 0, .25);
+}
+
+[class*='--halogen'] {
+  border: 1px solid #e6002e;
+  color: #e6002e;
+  background: rgba(230, 0, 46, .25);
+}
+
+[class*='--noble_gas'] {
+  border: 1px solid #c70066;
+  color: #c70066;
+  background: rgba(199, 0, 102, .25);
+}
+
+[class*='--post-transition_metal'] {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, .25);
+}
+
+[class*='--lanthanoid'] {
+  border: 1px solid #2f90f7;
+  color: #2f90f7;
+  background: rgba(47, 144, 247, .25);
+}
+
+[class*='--actinoid'] {
+  border: 1px solid #baa7ff;
+  color: #baa7ff;
+  background: rgba(186, 167, 255, .25);
+}

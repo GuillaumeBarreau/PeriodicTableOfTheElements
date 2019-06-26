@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing component List_buttons snapshot testing 1`] = `
+"<ul><li><button-element-stub class=\\"item--element--name_test_A\\">
+      name test_A
+    </button-element-stub></li><li><button-element-stub class=\\"item--element--name_test_B\\">
+      name test_B
+    </button-element-stub></li></ul>"
+`;
