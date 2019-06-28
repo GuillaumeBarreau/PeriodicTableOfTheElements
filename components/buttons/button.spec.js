@@ -33,15 +33,15 @@ describe('testing component button', () => {
     })
   })
 
-  describe('Methods validation', () => {
-    it('Should check if the method showData is called ', () => {
-      const showData = jest.fn()
-      wrapper.setMethods({ showData })
-
-      const button = wrapper.find('button')
-      button.trigger('click')
-
-      expect(wrapper.vm.showData).toHaveBeenCalled()
-    })
-  })
+  // describe('Methods validation', () => {
+  //   it('Should check if the method showData is called ', () => {
+  //     const showData = jest.fn()
+  //     wrapper.setMethods({ showData })
+  //
+  //     const button = wrapper.find('button')
+  //     button.trigger('click')
+  //
+  //     expect(wrapper.vm.showData).toHaveBeenCalled()
+  //   })
+  // })
 })

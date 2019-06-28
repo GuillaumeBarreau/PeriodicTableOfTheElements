@@ -4,11 +4,10 @@
       v-for="(element, index) in tableElements"
       :key="index"
       class="item--element"
-      :class="`item--element--${replaceString(element.groupBlock) }`"
+      :class="buildClassName(element)"
+      @click="showModal(element)"
     >
       <cell
-        :click="() => showData(element)"
-        class="item--cell"
         :object-element="element"
       />
     </li>
@@ -30,14 +29,29 @@ export default {
     tableElements: {
       type: Array,
       default: () => {}
+    },
+    disabledStyleBlockname: {
+      type: Boolean,
+      default: () => false
+    },
+    selectElementsByBlockName: {
+      type: String,
+      default: () => ''
     }
   },
   methods: {
-    showData(dataElement) {
-      console.log(dataElement)
-    },
     replaceString(type) {
       return type.replace(/ /g, '_')
+    },
+    showModal(element) {
+      this.$emit('openedModal', element)
+    },
+    buildClassName(element) {
+      let className = `item--element--${this.replaceString(element.groupBlock)}`
+      className = (this.disabledStyleBlockname && this.selectElementsByBlockName !== element.groupBlock)
+        ? className.concat(' disabled-element')
+        : className
+      return className
     }
   }
 }
@@ -45,30 +59,47 @@ export default {
 
 <style scoped>
 
-ul {
+.content--elements {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
   grid-gap: .5vw;
+  grid-template-columns: repeat(18, 1fr);
   margin: 0;
-  padding: 1rem;
+  z-index: 25;
   padding-top: 2rem;
+  padding: 5rem;
+  padding-left: 3rem;
 }
 
-.item--element{
+.disabled-element {
+  border: 1px solid white;
+  color: white;
+  opacity: .25;
+}
+
+.item--element {
   list-style: none;
+  max-width: 70px;
+  word-wrap: break-word;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.item--element:nth-of-type(2){
+.item--element:not([class*='disabled']):hover {
+  transform: scale(1.8);
+  z-index: 10;
+}
+
+.item--element:nth-of-type(2) {
   grid-column-start: 18;
 }
 
 .item--element:nth-of-type(72),
-.item--element:nth-of-type(104){
+.item--element:nth-of-type(104) {
   grid-column-start: 4;
 }
 
 .item--element:nth-of-type(5),
-.item--element:nth-of-type(13){
+.item--element:nth-of-type(13) {
   grid-column-start: 13;
 }
 
