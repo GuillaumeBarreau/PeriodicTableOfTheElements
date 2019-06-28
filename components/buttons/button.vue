@@ -1,7 +1,6 @@
 <template>
   <button
-    class="item--button"
-    @click="showData"
+    class="content--button"
   >
     <slot />
   </button>
@@ -14,19 +13,15 @@ export default {
     return {
       modalIsOpen: false
     }
-  },
-  methods: {
-    showData() {
-      this.modalIsOpen = !this.modalIsOpen
-      // TODO
-    }
   }
 }
 </script>
 
 <style>
 
-.item--button {
+.content--button {
   text-transform: uppercase;
+  padding-left: 0;
+  z-index: 50;
 }
 </style>

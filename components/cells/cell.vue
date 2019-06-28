@@ -1,7 +1,6 @@
 <template>
   <div
     class="item--cell"
-    @click="click"
   >
     <p class="data--cell--number">
       {{ objectElement.atomicNumber }}
@@ -19,34 +18,36 @@
 </template>
 
 <style>
-.item--cell{
+.item--cell {
   list-style: none;
   font-size: .8vw;
   font-weight: 700;
 }
 
 .data--cell--symbol {
-  font-size: calc(1vw * 1.3);
+  font-size: calc(1vw * 1.6);
+  color: rgba(255, 255, 255, .7);
 }
 
 .data--cell--number {
-  font-size: calc(1vw- 1.3);
+  font-size: calc(1vw / 1.3);
   text-align: right;
   padding-right: 2px;
 }
 
 .data--cell--mass {
-  font-size: calc(1vw- 1.3);
+  font-size: calc(1vw / 1.8);
+  color: rgba(255, 255, 255, .7);
+}
+
+.data--cell--name {
+  font-size: calc(1vw / 1.6);
 }
 </style>
 
 <script scoped>
 export default {
   props: {
-    click: {
-      type: Function,
-      default: () => {}
-    },
     objectElement: {
       type: Object,
       default: () => {}

@@ -1,7 +1,20 @@
 <template>
   <section class="container">
-    <list-cells :table-elements="tableElements" />
-    <list-buttons :table-elements="tableElements" />
+    <modal
+      v-if="modalIsOpen"
+      class="modal--content"
+      @closedModal="changedStateModalIsOpen"
+    />
+    <list-buttons
+      :table-elements="tableElements"
+      @selectBlockNameByElements="changedStateBlockNameIsSelect"
+    />
+    <list-cells
+      :disabled-style-blockname="disabledStyleBlockname"
+      :table-elements="tableElements"
+      :select-elements-by-block-name="selectElementsByBlockName"
+      @openedModal="changedStateModalIsOpen"
+    />
   </section>
 </template>
 
@@ -9,15 +22,37 @@
 import tableOfElements from '~/static/table_of_elements.json'
 import listCells from '~/components/cells/list_cells.vue'
 import listButtons from '~/components/buttons/list_buttons.vue'
+import modal from '~/components/modals/modal_element.vue'
 
 export default {
   components: {
     listCells,
-    listButtons
+    listButtons,
+    modal
   },
   data() {
     return {
-      tableElements: tableOfElements
+      tableElements: tableOfElements,
+      dataModalElement: false,
+      modalIsOpen: false,
+      disabledStyleBlockname: false,
+      selectElementsByBlockName: ''
+    }
+  },
+  methods: {
+    changedStateModalIsOpen(DataElement) {
+      this.modalIsOpen = !this.modalIsOpen
+    },
+    changedStateBlockNameIsSelect(blockName) {
+      // si le bouton selectionné est le même que l'action précédente
+      // alors on repasse disabledStyleBlockname à false.
+      if (blockName === this.selectElementsByBlockName) {
+        this.disabledStyleBlockname = false
+        this.selectElementsByBlockName = ''
+        return
+      }
+      this.disabledStyleBlockname = true
+      this.selectElementsByBlockName = blockName
     }
   }
 }
@@ -31,5 +66,16 @@ export default {
   align-items: center;
   text-align: center;
   background-color: #272825;
+  display: flex;
 }
+
+.modal--content {
+  position: absolute;
+  background: rgba(56, 56, 56, 0.74);
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+}
+
 </style>
