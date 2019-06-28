@@ -3,6 +3,7 @@
     <modal
       v-if="modalIsOpen"
       class="modal--content"
+      :data-element="dataElement"
       @closedModal="changedStateModalIsOpen"
     />
     <list-buttons
@@ -36,12 +37,14 @@ export default {
       dataModalElement: false,
       modalIsOpen: false,
       disabledStyleBlockname: false,
+      dataElement: {},
       selectElementsByBlockName: ''
     }
   },
   methods: {
-    changedStateModalIsOpen(DataElement) {
+    changedStateModalIsOpen(dataElement) {
       this.modalIsOpen = !this.modalIsOpen
+      this.dataElement = dataElement
     },
     changedStateBlockNameIsSelect(blockName) {
       // si le bouton selectionné est le même que l'action précédente

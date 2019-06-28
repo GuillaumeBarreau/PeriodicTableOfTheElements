@@ -1,5 +1,13 @@
 <template>
   <ul class="content--button">
+    <li class="item--button">
+      <div class="item--button--icon item--button--menu">
+        <img class="svg--menu" :src="svgMenu" alt="">
+      </div>
+      <button-element class="item--button--label item--button--menu">
+        Menu
+      </button-element>
+    </li>
     <li
       v-for="(blockName, index) in FiltresBlockNameOfTheTableElements"
       :key="index"
@@ -21,6 +29,7 @@
 
 <script>
 import buttonElement from '~/components/buttons/button.vue'
+import svgMenu from '~/static/icons-menu.svg'
 export default {
   components: {
     buttonElement
@@ -29,6 +38,11 @@ export default {
     tableElements: {
       type: Array,
       default: () => {}
+    }
+  },
+  data() {
+    return {
+      svgMenu
     }
   },
   computed: {
@@ -51,7 +65,6 @@ export default {
 </script>
 
 <style scoped>
-
 .content--button {
   align-self: center;
   list-style: none;
@@ -80,6 +93,10 @@ export default {
   transform: translate(calc(0% + 3.13rem), 0);
 }
 
+.item--button:hover + [class*='--post-transition_metal'] {
+  background: 10px solid red!important;
+}
+
 .item--button--label {
    font-weight: 800;
    height: 3.13rem;
@@ -91,4 +108,12 @@ export default {
    width: 11.25rem;
 }
 
+.item--button--menu {
+  background: white;
+  border: 0;
+}
+
+.svg--menu {
+  width: 50px;
+}
 </style>

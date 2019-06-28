@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import cmp from '~/components/buttons/list_buttons.vue'
 
+jest.mock('~/static/icons-menu.svg', () => 'ImageMoched')
 describe('testing component List_buttons', () => {
   const wrapper = shallowMount(cmp, {
     propsData: {
