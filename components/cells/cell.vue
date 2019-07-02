@@ -12,7 +12,7 @@
       {{ objectElement.name }}
     </p>
     <p class="data--cell--mass">
-      {{ fixedNumber(objectElement.atomicMass) }}
+      {{ fixedNumber(objectElement.atomicMassReduc || objectElement.atomicMass) }}
     </p>
   </div>
 </template>
