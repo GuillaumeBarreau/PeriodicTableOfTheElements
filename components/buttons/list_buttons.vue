@@ -1,13 +1,13 @@
 <template>
   <ul class="content--button">
-    <li class="item--button">
+    <!-- <li class="item--button">
       <div class="item--button--icon item--button--menu">
         <img class="svg--menu" :src="svgMenu" alt="">
       </div>
       <button-element class="item--button--label item--button--menu">
         Menu
       </button-element>
-    </li>
+    </li> -->
     <li
       v-for="(blockName, index) in FiltresBlockNameOfTheTableElements"
       :key="index"
@@ -18,7 +18,7 @@
         class="item--button--icon"
         :class="`--${replaceString(blockName)}`"
       >
-        IC
+       <img class="svg--elements" :src="svgElements" alt="">
       </div>
       <button-element :class="`item--button--label item--button--${replaceString(blockName)}`">
         {{ blockName }}
@@ -30,6 +30,8 @@
 <script>
 import buttonElement from '~/components/buttons/button.vue'
 import svgMenu from '~/static/icons-menu.svg'
+import svgElements from '~/static/chemical-diagram.svg'
+
 export default {
   components: {
     buttonElement
@@ -42,7 +44,8 @@ export default {
   },
   data() {
     return {
-      svgMenu
+      svgMenu,
+      svgElements
     }
   },
   computed: {
@@ -115,5 +118,10 @@ export default {
 
 .svg--menu {
   width: 50px;
+}
+
+.svg--elements {
+  width: 20px;
+  opacity: .8;
 }
 </style>

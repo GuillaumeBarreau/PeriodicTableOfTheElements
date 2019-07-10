@@ -3,13 +3,13 @@
     class="item--cell"
   >
     <p class="data--cell--number">
-      {{ objectElement.atomicNumber }}
+      {{ objectElement.atomicNumber ? objectElement.atomicNumber : NULL }}
     </p>
     <p class="data--cell--symbol">
-      {{ objectElement.symbol }}
+      {{ objectElement.symbol ? objectElement.symbol : '' }}
     </p>
     <p class="data--cell--name">
-      {{ objectElement.name }}
+      {{ objectElement.name ? objectElement.name : '' }}
     </p>
     <p class="data--cell--mass">
       {{ fixedNumber(objectElement.atomicMassReduc || objectElement.atomicMass) }}
