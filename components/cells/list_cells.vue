@@ -11,6 +11,28 @@
         :object-element="element"
       />
     </li>
+    <li
+      class="item--element item--element--lanthanoid disabled-element"
+    >
+      <cell
+        :object-element="{
+          atomicNumber: '57-71',
+          symbol: 'La-Lu',
+          name: 'lanthanoid'
+        }"
+      />
+    </li>
+    <li
+      class="item--element item--element--actinoid disabled-element"
+    >
+      <cell
+        :object-element="{
+          atomicNumber: '89-103',
+          symbol: 'Ac-Lr',
+          name: 'actinoid'
+        }"
+      />
+    </li>
   </ul>
 </template>
 
@@ -93,6 +115,14 @@ export default {
   grid-column-start: 18;
 }
 
+.item--element:nth-of-type(119) {
+  order: 1;
+}
+
+.item--element:nth-of-type(120) {
+  order: 2;
+}
+
  .item--element:nth-of-type(72),
 .item--element:nth-of-type(104) {
   grid-column-start: 4;
@@ -116,6 +146,7 @@ export default {
 }
 
 .item--element:nth-child(n+57):nth-child(-n+71) {
+  margin-top: 2rem;
   order: 4
 }
 

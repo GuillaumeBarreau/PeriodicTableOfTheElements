@@ -73,12 +73,12 @@ export default {
 }
 
 .modal--content {
-  position: absolute;
   background: rgba(56, 56, 56, 0.74);
-  top:0;
-  bottom:0;
-  right:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 </style>

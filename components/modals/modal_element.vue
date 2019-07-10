@@ -7,15 +7,15 @@
     <p>CLOSED</p>
     <div class="content_data_element">
       <cell :object-element="dataElement" />
-      <div>
-        <p>{{ dataElement }}</p>
-        <!-- <p>{{ dataElement.symbol }}</p>
+      <div class="content_data_element--text">
+        <!-- <p>{{ dataElement }}</p> -->
+        <p>{{ dataElement.symbol }}</p>
         <p>{{ dataElement.atomicMass}}</p>
         <p>{{ dataElement.electronicConfiguration}}</p>
         <p>{{ dataElement.electronegativity}}</p>
         <p>{{ dataElement.atomicRadius}}</p>
         <p>{{ dataElement.ionRadius}}</p>
-        <p>{{ dataElement.bondingType}}</p> -->
+        <p>{{ dataElement.bondingType}}</p>
       </div>
     </div>
   </div>
@@ -70,12 +70,35 @@ export default {
 }
 
 .content_data_element {
-  display: flex;
   align-items: center;
-  margin-top: 3rem;
   border: 1px solid white;
-  padding: 2rem;
+  display: flex;
+  margin-top: 3rem;
   margin: 5rem;
+  padding: 2rem;
+  /* animation: openModal 3s; */
+}
+
+@keyframes openModal {
+  0%   {
+    border: 0;
+  }
+  25%  {
+    border-bottom: 1px solid white;
+  }
+  50%  {
+    border-left: 1px solid white;
+  }
+  75%  {
+    border-top: 1px solid white;
+  }
+  100% {
+    border-left: 1px solid white;
+  }
+}
+
+.content_data_element--text {
+  min-width: 800px;
 }
 
 .content_data_element > div {
